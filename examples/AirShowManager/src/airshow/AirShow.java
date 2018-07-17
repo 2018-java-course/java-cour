@@ -5,7 +5,8 @@
  */
 package airshow;
 
-import calendarmanager.CalendarEvent;
+import calendar.api.CalendarEvent;
+import calendar.api.CalendarEventException;
 import java.time.LocalDate;
 
 /**
@@ -20,13 +21,13 @@ public class AirShow implements CalendarEvent {
     private LocalDate endDate;
     private String category;
 
-    AirShow(String name, LocalDate startDate, LocalDate endDate) {
+    public AirShow(String name, LocalDate startDate, LocalDate endDate) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    AirShow(String name, LocalDate date) {
+    public AirShow(String name, LocalDate date) {
         this(name, date, date);
     }
 
@@ -57,6 +58,11 @@ public class AirShow implements CalendarEvent {
     @Override
     public String getTitle() {
         return getName();
+    }
+
+    @Override
+    public String getLocation() throws CalendarEventException {
+        throw new CalendarEventException("Location is not supported by "+ this.getClass() +" yet.");
     }
 
 }
