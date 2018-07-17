@@ -33,7 +33,6 @@ public class AirShowManager {
         
         for (CalendarEvent event : events) {
             System.out.format("Event: %s, from %s to %s, category %s%n", event.getTitle(),event.getStartDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)),event.getEndDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)),event.getCategory()==null?"none":event.getCategory());
-//            System.out.format("Event: %s%n", event.getTitle());
         }
     }
     
