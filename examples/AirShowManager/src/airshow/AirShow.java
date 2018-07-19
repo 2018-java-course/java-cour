@@ -7,13 +7,14 @@ package airshow;
 
 import calendar.api.CalendarEvent;
 import calendar.api.CalendarEventException;
+import calendar.api.Displayable;
 import java.time.LocalDate;
 
 /**
  *
  * @author claudio
  */
-public class AirShow implements CalendarEvent {
+public class AirShow implements CalendarEvent, Displayable {
     
     
     private String name;
@@ -63,6 +64,11 @@ public class AirShow implements CalendarEvent {
     @Override
     public String getLocation() throws CalendarEventException {
         throw new CalendarEventException("Location is not supported by "+ this.getClass() +" yet.");
+    }
+
+    @Override
+    public String getDescription() {
+        return this.name + " is a wonderful event. Please come and see it!"; 
     }
 
 }
